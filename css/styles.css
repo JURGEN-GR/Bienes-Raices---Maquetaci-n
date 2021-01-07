@@ -1,0 +1,434 @@
+html {
+  box-sizing: border-box; /**AYUDA A QUE EL PADING NO AUMENTE EL TAMAÑO DEL ANCHO TOTAL CON UN WHIDGHT, ERROR: PADING 5 + WHIDGHT 10 = 20**/
+  font-size: 62.5%; /*RESET PARA REMS 62.5% = 10PX DE 16PX*/
+}
+*,
+*:before,
+*:after {
+  /**AYUDA A QUE EL PADING NO AUMENTE EL TAMAÑO DEL ANCHO TOTAL CON UN WHIDGHT, ERROR: PADING 5 + WHIDGHT 10 = 20**/
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Lato", sans-serif; /*FUENTE ELEJIDA PARA TODO EL DOCUMENTO EN GENERAL*/
+  font-size: 1.6rem; /*REGRESANDO AL ESTANDARD DE 16 PX PERO CON REM*/
+  line-height: 2; /*INTERLINIADO EN TODO EL TEXTO DE HTML*/
+}
+
+/**Globales**/
+.contenedor {
+  width: 95%;
+  max-width: 120rem; /*1 LIMITA LA ANCHURA MAXIMA*/
+  margin: 0 auto; /*2 CENTRAR CONTENEDOR*/
+}
+img {
+  max-width: 100%;
+}
+/*SISTEMA DE TAMAÑOS*/
+h1 {
+  font-size: 3.8rem; /*TAMAÑO DE LETRA*/
+}
+
+h2 {
+  font-size: 3.4rem; /*TAMAÑO DE LETRA*/
+}
+h3 {
+  font-size: 3rem; /*TAMAÑO DE LETRA*/
+}
+h4 {
+  font-size: 2.6rem; /*TAMAÑO DE LETRA*/
+}
+/*Utilidades*/
+.seccion {
+  margin-top: 2rem; /*ESPACIO ACIA ARRIBA*/
+  margin-bottom: 2rem; /*ESPACIO HACIA ABAJO*/
+}
+.fw-300 {
+  font-weight: 300; /*TAMAÑO DE FUENTE 300*/
+}
+.centrar-texto {
+  text-align: center; /*ALINIAR TEXTO*/
+}
+.d-block {
+  display: block !important; /*IMPORTANT SIGNIFICA QUE NO TOMARA EN CUENTA LA PRECEDENCIA EN CASCADA*/
+}
+.contenido-centrado {
+  max-width: 80rem;
+}
+
+/*Botones*/
+.boton {
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1.8rem;
+  padding: 1rem 3rem;
+  margin-top: 3rem;
+  display: inline-block; /*CAMBIA LOS ENLACES O IMAGENES DE DISPLAY INLINE A INLINE-BLOCK O BLOCK PARA PODER ASIGNAR UN ANCHO*/
+  text-align: center;
+  border: none;
+  display: block;
+  flex: 0 0 100%;
+}
+@media (min-width: 768px) {
+  .boton {
+    display: inline-block;
+    flex: 0 0 auto;
+  }
+}
+.boton:hover {
+  cursor: pointer;
+}
+.boton-amarillo {
+  background: #e08709;
+}
+.boton-verde {
+  background: #71b100;
+}
+.ver-todas {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/*Seccion 1 Header*/
+.site-header {
+  background: #333333;
+  padding: 0 0 2rem 0;
+}
+.site-header.inicio {
+  background: url(../img/header.jpg); /*1 COLOCA IMAGEN DE FONDO*/
+  background-position: center center; /*4 MUESTRA LA IMAGEN DESDE EL CENTRO*/
+  background-size: cover; /*5 FORZA A LA IMAGEN A TOMAR EL ANCHO Y ALTO DEL ESPACIO DISPONIBLE*/
+  height: 100vh; /*2 FUNCION QUE DETECTA EL TAMAÑO DE LA PANTALLA Y HACE QUE LA ALTURA SEA DE ESE TAMAÑO*/
+  min-height: 60rem; /*3 TAMAÑO MINIMO QUE DEVE DE MEDIR*/
+}
+
+.barra {
+  padding-top: 3rem; /*4 ESPACIO HACIA ADENTRO DEL ELEMENTO, PARTE SUPERIOR*/
+}
+@media (min-width: 768px) {
+  .barra {
+    display: flex; /*1 ACTIVAR FLEXBOX*/
+    justify-content: space-between; /*2 PROPIEDAD PARA ALINIAR HORIZONTALMENTE FLEX, CENTER, SPACE*/
+    align-items: center; /* ALINEAR DE MANERA VERTICAL*/
+  }
+}
+.navegacion a {
+  color: #ffffff; /*1 COLOR A LOS ENLACES*/
+  text-decoration: none; /*2 QUITA LAS LINEAS INFERIORES DE NUESTROS ENLACES*/
+  font-size: 2.2rem; /*4 TAMAÑO DE LA FUNETE*/
+  display: block;
+}
+@media (min-width: 768px) {
+  .navegacion a {
+    display: inline-block;
+    margin-right: 2rem; /*3 ESPACIO HACIA AFUERA DE LOS ELEMENTOS*/
+    font-size: 1.8rem; /*4 TAMAÑO DE LA FUNETE*/
+  }
+  .navegacion a:last-of-type {
+    /*SEUDO SELECTORES, NOS PERMITER ELEJIR EL PRIMERO O ULTIMO ELEMENTO*/
+    margin-right: 0;
+  }
+}
+
+.navegacion a:hover {
+  /*SEUDO SELECTOR PARA CUANDO PASAMOS EL PUNTERO SOBRE UN ELEMENTO*/
+  color: #71b100;
+}
+/*Mobile menu*/
+.mobile-menu img {
+  width: 5rem;
+}
+@media (min-width: 768px) {
+  .mobile-menu {
+    display: none;
+  }
+}
+.navegacion {
+  display: none;
+}
+@media (min-width: 768px) {
+  .navegacion {
+    display: block;
+  }
+}
+.navegacion:target {
+  display: block;
+}
+.contenido-header {
+  display: flex; /*1 ACTIVAMOS FLEXBOX*/
+  flex-direction: column; /*2 FLEXBOX TIENE DISTINTAS DIRECCIONES, ROW, ROW-REVERSE, COLUM. COLUM PARA MANERA VERTICAL*/
+  height: 100%; /*3 UTILIZA EL 100% DE ALTURA QUE TENGA DISPONIBLE*/
+  justify-content: space-between; /*2 PROPIEDAD PARA ALINIAR VERTICALMENTE FLEX, CENTER, SPACE*/
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .contenido-header {
+    text-align: left;
+  }
+}
+.contenido-header h1 {
+  color: #ffffff; /*1 COLOR DE LA LETRA*/
+  padding-bottom: 2rem; /*2 ESSPACIO HACIA ADENTRO DEL ELEMENTO, PARTE INFERIROR*/
+  max-width: 60rem; /* LIMITA LA ANCHURA MAXIMA*/
+  line-height: 2; /*INTERLINIADO (ESPACIO ENTRE CADA PARRAFO)*/
+}
+
+/*Seccion 2 Nosotros*/
+@media (min-width: 768px) {
+  .iconos-nosotros {
+    display: flex; /*1 ACTIVAMOS FLEXBOX*/
+    justify-content: space-between; /*2 PROPIEDAD PARA ALINIAR VERTICALMENTE FLEX, CENTER, SPACE*/
+  }
+}
+
+.iconos {
+  text-align: center; /*2 CENTRAR TEXTO, AUN QUE EN ESTE CASO TAMBIEN ALINEA UNA IMAGEN*/
+}
+@media (min-width: 768px) {
+  .iconos {
+    flex-basis: calc(
+      33.3% - 1rem
+    ); /*1 TAMAÑO ASIGNADO PARA CADA CONTENEDOR, CALC NOS PERMITE HACER OPERACIONES*/
+  }
+}
+.iconos h3 {
+  text-transform: uppercase; /*ESTO NOS PERMITE CAMBIAR LAS LETRAS A MAYUSCULAS*/
+}
+
+/*Seccion 3 Anuncios*/
+@media (min-width: 768px) {
+  .contenedor-anuncios {
+    display: flex; /*1 ACTIVAMOS FLEXBOX*/
+    justify-content: space-between; /*2 PROPIEDAD PARA ALINIAR VERTICALMENTE FLEX, CENTER, SPACE*/
+    flex-wrap: wrap; /*hace que tome el tamaño que se nesecita, evitando el scroll hacia los lados*/
+  }
+}
+
+.anuncio {
+  border: 1px solid #b5b5b5; /*BORDER TOMA 3 PROPIEDADES ESTAS SON WIDTH, STYLE Y COLOR*/
+  background: #f5f5f5;
+  margin-bottom: 2rem;
+}
+@media (min-width: 768px) {
+  .anuncio {
+    flex: 0 0 calc(33.3% - 1rem); /*Este es un chort gen con el cual podemos amitir poner los tres de abajo*/
+    /*flex-grow: 0; /*0 pone deja el tamaño ariginal, con 1 hace que si el contenido puede crecer pues cresca*/
+    /*flex-shrink: 0;/*Evita el encogimiento de los contenedores*/
+    /*flex-basis: calc(33.3% - 1rem); /*1 TAMAÑO ASIGNADO PARA CADA CONTENEDOR, CALC NOS PERMITE HACER OPERACIONES*/
+  }
+}
+.contenido-anuncio {
+  padding: 2rem;
+}
+.contenido-anuncio h3,
+.contenido-anuncio p {
+  margin: 0;
+}
+.precio {
+  color: #71b100;
+  font-weight: 700;
+}
+.iconos-caracteristicas {
+  list-style: none; /*QUITA LAS BIÑETAS O NUMEROS QUE TENGA LA LISTA*/
+  padding: 0;
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 50rem;
+  flex: 1;
+}
+.iconos-caracteristicas li {
+  /*flex: 1;Flex 1, detecta cuanto tamaño hay disponible y cuantos elementos hay despues realiza una divicion y le asigna
+    sierta cantidad de pixeles a cada elemento*/
+  display: flex;
+}
+.iconos-caracteristicas li img {
+  margin-right: 2rem;
+}
+/*seccion 4 Contacto-home*/
+.imagen-contacto {
+  background: url(../img/encuentra.jpg);
+  height: 40rem;
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+.contenido-contacto {
+  flex: 0 0 95%; /*Flex 1, detecta cuanto tamaño hay disponible y cuantos elementos hay despues realiza una divicion y le asigna
+    sierta cantidad de pixeles a cada elemento*/
+  color: #ffffff;
+}
+.contenido-contacto p {
+  font-size: 1.8rem;
+}
+
+/*Seccion inferior*/
+@media (min-width: 768px) {
+  .seccion-inferior {
+    display: flex;
+    justify-content: space-between;
+  }
+  .seccion-inferior .blog {
+    flex-basis: 60%;
+  }
+  .seccion-inferior .testimoniales {
+    flex-basis: calc(40% - 2rem);
+  }
+}
+
+.entrada-blog {
+  margin-bottom: 2rem;
+}
+@media (min-width: 768px) {
+  .entrada-blog {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.entrada-blog:last-of-type {
+  margin-bottom: 0;
+}
+@media (min-width: 768px) {
+  .entrada-blog .imagen {
+    flex-basis: 40%;
+  }
+  .entrada-blog .texto-entrada {
+    flex-basis: calc(60% - 3rem);
+  }
+}
+.texto-entrada a {
+  color: #000;
+  text-decoration: none;
+}
+.texto-entrada h4 {
+  margin: 0;
+  line-height: 1.4;
+}
+.texto-entrada h4::after {
+  content: "";
+  display: block;
+  width: 15rem;
+  height: 0.5rem;
+  background: #71b100;
+  margin-top: 1rem;
+}
+.texto-entrada span {
+  color: #e08709;
+}
+.testimonial {
+  background: #71b100;
+  font-size: 2.4rem;
+  padding: 2rem;
+  color: #ffffff;
+  border-radius: 2rem;
+}
+.testimonial p {
+  text-align: right;
+}
+.testimonial blockquote::before {
+  content: "";
+  background: url(../img/comilla.svg);
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  left: -2rem;
+}
+.testimonial blockquote {
+  position: relative;
+  padding-left: 5rem;
+  font-weight: 300;
+}
+
+/**Footer**/
+.site-footer {
+  background: #333333;
+  margin: 0;
+}
+.contenedor-footer {
+  padding: 3rem 0;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .contenedor-footer {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.site-footer nav {
+  display: none;
+}
+@media (min-width: 768px) {
+  .site-footer nav {
+    display: block;
+  }
+}
+.copyright {
+  margin: 0;
+  color: #ffffff;
+}
+
+/*Paginas internas*/
+/*Nosotros*/
+@media (min-width: 768px) {
+  .contenido-nosotros {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 2rem;
+  }
+}
+
+.contenido-nosotros blockquote {
+  font-weight: 900;
+  font-size: 2rem;
+  margin: 0;
+  padding: 2rem 0;
+}
+/*Anuncio*/
+.resumen-propiedad {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/*Contacto*/
+.contacto p {
+  font-size: 1.5rem;
+  color: #4f4f4f;
+  margin: 2rem 0 0 0;
+}
+legend {
+  font-size: 2rem;
+  color: #4f4f4f;
+}
+label {
+  display: block;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+input:not([type="submit"]),
+textarea,
+select {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background: #e1e1e1;
+  margin-bottom: 2rem;
+  border: none;
+  border-radius: 0.5rem;
+}
+input[type="radio"] {
+  width: auto;
+  margin: 0;
+}
+select {
+  -webkit-appearance: none;
+}
+textarea {
+  height: 20rem;
+}
+.forma-contacto {
+  max-width: 30rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
